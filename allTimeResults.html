@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Reaction with Bootstrap</title>
+<!--<link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">!-->
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!---<script src="js/bootstrap.min.js"></script>---->
+
+
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+ <style>
+
+ /* Thanks A-Town*/
+body{
+background: url('http://newevolutiondesigns.com/images/freebies/city-wallpaper-11.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+  background-size: cover;
+}
+
+table{
+  background-color: grey;
+  font-weight: bold;
+}
+
+
+ .box {
+ border:1px solid grey;
+ background-color:#d3d3d3;
+
+ }
+
+ </style>
+ </head>
+ <body>
+
+
+ <div class="navbar navbar-inverse">
+
+ <div class="container">
+
+ <div class="navbar-header">
+
+ <a href="index.html" class="navbar-brand">Reaction With Bootstrap</a>
+
+ <button type="button" class="navbar-toggle" data-toggle="collapse"
+data-target=".navbar-collapse">
+
+ <span class="sr-only">Toggle navigation</span>
+
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+
+
+ </button>
+
+ </div>
+
+ <div class="collapse navbar-collapse">
+
+ <ul class="nav navbar-nav">
+
+ <li class="active"><a href="allTimeResults.html">ALL-TIME GREATEST</a></li>
+ <li><a href="todaysResults.html">LEGENDS OF LAST 24HRS</a></li>
+
+ </ul>
+
+ </div>
+
+ </div>
+
+ </div>
+
+
+ <h1 class="text-center">Greatest of All-Time</h1>
+ <div class="container">
+
+
+
+
+ <table id="results-table" class="table table-striped table-bordered table-hover">
+
+ 	<tr class="info">
+          <th>Place</th>
+          <th>User Name</th>
+          <th>Score</th>
+    </tr>
+ 	
+ </table>
+ 
+
+
+
+ </div>
+
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+
+ <script type="text/javascript">
+    Parse.initialize("kVrJWXWw9AgyElS0fdAp7IVa6gsrpkr39pYac3F6", "QCplNhijebBNAkOaFQizX3SIWVmm10YJZXxpxLWb");
+    
+    
+      var GameScore = Parse.Object.extend("GameScore");
+var query = new Parse.Query(GameScore);
+//var resultsArray = new Array;
+var myScores='';
+query.ascending("score");
+query.limit(25);
+//document.getElementById("top25").innerHTML=query.decending("score,playerName");
+query.find({
+  //success: function(results) {
+    //alert("Successfully retrieved " + results.length + " scores.");
+    //Do something with the returned Parse.Object values
+    //for (var i = 0; i < results.length; i++) {
+      //var object = results[i];
+      //resultsArray.push(object);
+
+      //console.log(object);
+      //alert(object.ascending(object.score));
+      //document.getElementById("list").innerHTML=document.getElementById("list").innerHTML+ "<li>"+object.get("playerName") + " - " + object.get("score")+"</li>";
+      //document.getElementById("top25").appendChild
+  success: function(results) {
+  for (var i = 0; i < results.length; i++) { 
+  var object = results[i];
+  var rank = i + 1;
+  myScores+='<tr><td>'+rank+'</td><td>' + object.get('playerName') + '</td><td>' + object.get('score') + '</td></tr>';
+}
+  (function($) {
+      $('#results-table').append(myScores);
+  })(jQuery);
+
+    
+    //makelist();
+    //alert(query.ascending("score"))
+    //document.getElementById("top25").innerHTML="<ol><li>"+object.get("playerName")+"</li></ol>";
+  },
+  error: function(error) {
+    alert("Error: " + error.code + " " + error.message);
+  }
+});
+
+  
+</script>
+
+
+ </body>
+</html>

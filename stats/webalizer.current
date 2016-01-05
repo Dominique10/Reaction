@@ -1,0 +1,319 @@
+# Webalizer V2.23-08 Incremental Data - 01/04/2016 21:34:06
+2016 1 4 21 34 6
+73 60 26 6 21 16 1274635 52 35 0
+9 1 13 1 4
+20 16 263961 9 16 12
+15 12 363646 7 9 5
+18 16 263738 7 14 10
+20 16 383290 9 13 8
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+2 2 9562 2
+4 3 132869 2
+1 1 4781 1
+29 25 798592 18
+8 7 220448 5
+1 0 261 0
+0 0 0 0
+1 1 4781 1
+2 1 5548 1
+1 1 4781 1
+1 1 4781 1
+6 5 24827 5
+1 1 4781 1
+3 2 9836 3
+2 2 9562 2
+0 0 0 0
+3 2 10329 2
+0 0 0 0
+1 1 4781 1
+1 1 4781 1
+0 0 0 0
+2 2 9562 2
+2 0 767 1
+2 2 9005 2
+0
+0
+0
+60
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+11
+0
+2
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+# -urls- 
+/js/bootstrap.min.js
+0 4 0 147264 0 0
+/todaysResults.html
+0 6 0 25344 2 0
+/css/bootstrap.min.css
+0 6 0 735240 0 0
+/CurrentScripts.js
+0 4 0 166412 0 0
+/allTimeResults.html
+0 6 0 29616 2 0
+/
+0 34 0 162554 29 13
+# End Of Table - urls
+# -sites- (monthly)
+46.118.126.200
+0 5 5 23905 5 1451919351
+/
+66.249.64.225
+0 1 1 4936 1 1451878211
+/allTimeResults.html
+199.16.156.125
+0 2 1 5548 1 1451894524
+/
+184.154.249.74
+0 8 7 220448 1 1451790131
+/allTimeResults.html
+85.195.226.180
+0 2 0 767 1 1451686629
+-
+46.118.226.141
+0 2 2 9562 2 1451819684
+/
+66.249.69.26
+0 1 1 4224 1 1451878164
+/todaysResults.html
+180.76.15.144
+0 1 1 4781 1 1451839842
+/
+208.115.113.83
+0 1 0 261 0 0
+-
+108.163.224.114
+0 8 7 220448 1 1451706185
+/allTimeResults.html
+80.255.192.237
+0 1 0 274 1 1451654894
+-
+178.137.89.157
+0 5 5 23905 5 1451862938
+/
+134.249.49.23
+0 4 4 19124 4 1451666995
+/
+197.231.221.211
+0 1 1 4781 1 1451741987
+/
+107.6.137.74
+0 8 7 220448 1 1451621179
+/allTimeResults.html
+66.249.69.34
+0 2 1 123307 0 0
+-
+66.249.69.49
+0 1 0 767 0 0
+-
+68.180.228.248
+0 3 2 10484 1 1451906261
+/
+136.243.48.84
+0 1 1 4224 1 1451690590
+/todaysResults.html
+66.249.69.18
+0 1 1 4781 1 1451877726
+/
+178.137.160.2
+0 2 2 9562 2 1451824810
+/
+208.42.251.123
+0 1 1 4781 1 1451609411
+/
+180.76.15.140
+0 1 1 4781 1 1451943246
+/
+180.76.15.157
+0 1 0 767 0 0
+-
+69.175.59.186
+0 8 7 220448 1 1451876847
+/allTimeResults.html
+66.249.69.33
+0 2 2 127321 1 1451698752
+/
+# End Of Table - sites (monthly)
+# -sites- (daily)
+46.118.126.200
+0 1 1 4781 1 1451919351
+/
+66.249.64.225
+0 1 1 4936 1 1451878211
+/allTimeResults.html
+199.16.156.125
+0 2 1 5548 1 1451894524
+/
+66.249.69.26
+0 1 1 4224 1 1451878164
+/todaysResults.html
+66.249.69.34
+0 2 1 123307 0 0
+-
+68.180.228.248
+0 3 2 10484 1 1451906261
+/
+66.249.69.18
+0 1 1 4781 1 1451877726
+/
+180.76.15.140
+0 1 1 4781 1 1451943246
+/
+69.175.59.186
+0 8 7 220448 1 1451876847
+/allTimeResults.html
+# End Of Table - sites (daily)
+# -referrers- 
+http://pizza-imperia.com/
+0 1
+http://chcu.net/porno-video-2016/
+0 1
+http://www.google.com/url
+1 16
+http://mriyadh.com/
+0 1
+http://www.rvtv.ru/
+0 1
+http://hyipmanager.in/
+0 1
+http://healmytrauma.info/
+0 1
+http://expertnaya-ocenka.ru/
+0 1
+- (Direct Request)
+0 38
+http://la-fa.ru/
+0 1
+http://wallpapers-best.com/
+0 1
+http://electricwheelchairsfind.com/
+0 1
+Google
+2 16
+http://wdfdocando.com/
+0 1
+http://vesta-lada.net/
+0 1
+http://xn--80ab4aa2g.xn--p1ai/
+0 1
+http://mirtorrent.net/
+0 1
+http://lost-alpha.ru/
+0 1
+http://www.24videos.tv/
+0 1
+http://nagdak.ru/
+0 1
+http://www.artdeko.info/
+0 1
+http://cardul.ru/
+0 1
+# End Of Table - referrers
+# -agents- 
+Mozilla/5.0
+0 7
+MSIE 7.0
+0 1
+MSIE 5.5
+0 3
+Internet Explorer 5
+2 3
+Twitterbot/1.0
+0 2
+Netscape 6 compatible
+2 7
+SiteLockSpider [en] (WinNT; I ;Nav)
+0 16
+Mozilla/4.7
+0 1
+Netscape 4 (or compatible)
+2 1
+curl/7.38.0
+0 1
+Opera 7.5
+0 1
+Yahoo! Slurp
+0 3
+Internet Explorer 6
+2 11
+Baiduspider/2.0
+0 2
+MSIE 9.0
+0 16
+Opera
+2 1
+Mozilla/4.0 (compatible- MSIE 6.0- Windows NT 5.1- SV1- .NET CLR 1.1.4322
+0 1
+Googlebot/2.1
+0 7
+MSIE 4.0
+0 1
+Internet Explorer 4
+2 1
+MSIE 6.0
+0 10
+DotBot/1.1
+0 1
+# End Of Table - agents
+# -search strings- 
+# End Of Table - search strings
+# -usernames- 
+# End Of Table - usernames
