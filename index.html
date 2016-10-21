@@ -15,6 +15,7 @@
   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,164 +24,73 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-<style>
-
-body:before {
-    /*content: "";
-    position: absolute;
-    
-    z-index: -1;  Keep the background behind the content */
-    /*height: 20%; width: 20%;  Using Glen Maddern's trick /via @mente 
-
-    /* don't forget to use the prefixes you need 
-    transform: scale(5);
-    transform-origin: top left;
-    filter: blur(5px);
-    
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;*/
-
-}
-/* Thanks A-Town*/
-body{
-background: url('http://newevolutiondesigns.com/images/freebies/city-wallpaper-11.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
- -moz-background-size: cover;
- -o-background-size: cover;
-  background-size: cover;
-}
-
-#progressBar div {
-  height: 100%;
-  text-align: right;
-  padding: 0 10px;
-  line-height: 22px; /* same as #progressBar height if we want text middle aligned */
-  width: 0;
-  background-color: #CBEA00;
-  box-sizing: border-box;
-}
-
-  .box{
-    border: 1px solid grey;
-    background-color: #d3d3d3;
-  }
-
-  #box {
-       width:200px;
-       height:200px;
-       background-color:red;
-       display:none;
-       position:relative;
-       
-     }
-     
-     #alert{
-      display: none;
-     }
-
-     #instructions{
-      margin-bottom: 0px;
-     }
-
-
-
-
-
-
-</style>
 
   </head>
-  <body>
-
-
-  <div class="navbar navbar-inverse">
-      <div class="container">
-        
-        <div class="navbar-header">
-          
-          <a href="index.html" class="navbar-brand">Reaction With Bootstrap</a>
-
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            
-          <span class="sr-only">Toggle navigation</span>
-
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-
-          </button>
-          
-        </div>
-
-        <div class="collapse navbar-collapse">
-          
-            <ul class="nav navbar-nav">
-              
-            <li><a href="allTimeResults.html">ALL-TIME GREATEST</a></li>
-            <li><a href="todaysResults.html">LEGENDS OF LAST 24HRS</a></li>
-
-            </ul>
-
-        </div>
-
+<body>
+<div class="navbar navbar-inverse">
+  <div class="container">      
+    <div class="navbar-header">      
+      <a href="index.html" class="navbar-brand">Reaction With Bootstrap</a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>    
+    </div>
+      <div class="collapse navbar-collapse ">    
+        <ul class="nav navbar-nav">      
+          <li><a href="allTimeResults.html">ALL-TIME GREATEST</a></li>
+          <li><a href="todaysResults.html">LEGENDS OF LAST 24HRS</a></li>
+        </ul>
       </div>
   </div>
-
-
-    <div class="container">
+</div>
+    <div class="container alert alert-info">
       <h1 class="text-center">To Move Fast One Must React Fast!</h1>
-      <h2 class="text-center">Reaction With Bootstrap</h2>
+      <h2 class="text-center">Click The Black Square</h2>
 
- <div id="instructions" class="alert alert-info"><h6 class="text-center">Enter Your Name, press start and click on the objects FAST!</h6></div>
- 
-
-<div class="input-group">
-  
-
+<div id="instructions" class="alert alert-info">
+  <h6 class="text-center">Enter Your Name, press start and click on the black square as FAST as you can</h6>
 </div>
-         <div id="inputBox" class="input-group"><span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
 
-   <input type="text" class="form-control" id="firstname1" placeholder="Enter Player Name....">
+<div id="inputBox" class="input-group"><span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+ <input type="text" class="form-control" id="firstname1" placeholder="Enter Player Name...." required="true" autofocus="true">
    <span class="input-group-btn">
-        <button class="btn btn-default" type="button" id="sendName">Start!</button>
+      <button class="btn btn-default" type="button" id="sendName">Start!</button>
    </span>
-
-
 </div>
+
 <div id="alert" class="alert alert-success"></div>
 
 <div class="alert alert-info"><span id="time">Your Time:</span>
-
-            <span id="averageTime"></span> 
-      <br>
-      </div>
-     
-        
-           <div id="box" style="position: absolute">
-            
-           </div>
-
-
-
-           <p>
-Feedback:
-<a href="mailto:dominique@youngjammer.com?Subject=I%20have%20great%20feedback%20for%20Reaction%20" target="_top">Send E-Mail to Dominique@youngjammer.com</a>
+  <span id="averageTime"></span>
+  <br>
+</div>
+<div class="container">
+  <div class="row">
+    <ul class="col-xs-12 col-sm-6 col-md-10" id="game">
+      <li id="one" class="btn span1"></li>
+      <li id="two" class="btn span1"></li>
+      <li id="three" class="btn span1"></li>
+      <li id="four" class="btn span1"></li>
+      <li id="five" class="btn span1"></li>
+      <li id="six" class="btn span1"></li>
+      <li id="seven" class="btn span1"></li>
+      <li id="eight" class="btn span1"></li>
+      <li id="nine" class="btn span1"></li>
+    </ul>
+  </div>
+</div>
+<p>Feedback:
+  <a href="mailto:dominique@youngjammer.com?Subject=I%20have%20great%20feedback%20for%20Reaction%20" target="_top">Send E-Mail to Dominique@youngjammer.com</a>
 </p>
 
 
-
-
-
-
-    
-
-<script type="text/javascript" src="CurrentScripts.js"></script>
-
      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
   </body>
 </html>

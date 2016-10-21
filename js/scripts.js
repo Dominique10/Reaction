@@ -9,17 +9,30 @@ var averageArray;
 var answer = '';
 var clickedItem;
 var myArray= new Array;
+var firstNameCheck;
 var gridArray = ["one","two","three","four","five","six","seven","eight","nine"];
 var gridColor = ["black","blue","green","red","inherit","orange","pink","purple","gold"]
 
 $(document).ready(function() {
 	$('#sendName').on('click', function (e) {
-		document.getElementById("sendName").style.display="none";
-	  document.getElementById("inputBox").style.display="none";
-	  document.getElementById("instructions").style.display="none";
-	  $(".text-center").css("display","none");
-	  //progress(5, 5, $('#progressBar'));
-	  setTimeout("getRandomColor()",2000);
+		firstNameCheck= $("#firstname1").val();
+		if (firstNameCheck == "") {
+			$("#alert").removeClass("alert alert-success");
+			$("#alert").addClass("alert alert-danger");
+			$("#alert").text("Please Enter Name");
+			$("#alert").css("display","block");
+			// setTimeout("location.reload ();",1500);
+		}
+		else{
+			$("#alert").css("display","none");
+			$("p").css("display","none");
+			document.getElementById("sendName").style.display="none";
+		  document.getElementById("inputBox").style.display="none";
+		  document.getElementById("instructions").style.display="none";
+		  $(".text-center").css("display","none");
+		  //progress(5, 5, $('#progressBar'));
+		  setTimeout("getRandomColor()",2000);
+		}
 	});
 
 	$('ul').on('click', '.span1', function(event){
@@ -50,6 +63,7 @@ $(document).ready(function() {
 function getRandomColor() {
  	shuffle(gridColor);
  	shuffle(gridArray);
+ 	$("#alert").css("display","none");
  	$(".btn.span1").css("visibility","hidden");
  	for (var i = 0; i < gridColor.length; i++ ) {
  		color = gridColor[i];
@@ -62,8 +76,6 @@ function getRandomColor() {
 	//return color;
 	$(".btn.span1").css("visibility","visible");
 	createdTime=Date.now();
-	$("#alert").css("visibility","hidden");
-	$("#alert").css("display","block");
 }
 
 function scoreboard(){
@@ -83,12 +95,13 @@ function scoreboard(){
 	    gameScore.set("score", avg);
 	    gameScore.set("playerName", document.getElementById("firstname1").value);
 	    gameScore.set("sum", sum);
+	    $("#time").css("display","none");
+	    $("#alert").addClass("alert alert-info");
+      $("#alert").css("display","block");
+      $("#alert").css("visibility","visible");
+      $("#alert").text("Your time is: " + avg);
 	    gameScore.save(null, {
 	      success: function(gameScore) {
-	    // Execute any logic that should take place after the object is saved.
-	    	document.getElementById("alert").className="alert alert-info"
-	      document.getElementById("alert").style.display="block";
-	      document.getElementById("alert").innerHTML="Your time is: " + avg;
 	      //alert('Your time is: ' + avg);
 	      setTimeout("location.reload ();",3000);
 	      //location.reload ();

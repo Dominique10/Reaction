@@ -1,0 +1,79 @@
+body{
+  background: url('../image/13.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.navbar.navbar-inverse {
+    background-color: #355066;
+    border-color: #d5d5d5;
+}
+
+#progressBar div {
+  height: 100%;
+  text-align: right;
+  padding: 0 10px;
+  line-height: 22px; /* same as #progressBar height if we want text middle aligned */
+  width: 0;
+  background-color: #CBEA00;
+  box-sizing: border-box;
+}
+
+.box{
+  border: 1px solid grey;
+  background-color: #d3d3d3;
+}
+
+#box {
+  width:100px;
+  height:100px;
+  background-color:red;
+  display:none;
+  position:relative;
+  box-sizing: content-box;
+}
+
+#alert{
+  display: none;
+}
+
+#instructions{
+  margin-bottom: 0px;
+}
+.btn.span1 {
+  padding: 3rem!important;
+  margin: 4px;
+  box-shadow: 4px 5px 4px #888888;
+  border: solid .2rem #000000;
+  visibility: hidden;
+}
+#row{
+  text-align: center;
+  padding: 0;
+}
+
+@media (min-width: 320px) {
+  .btn.span1{
+    padding:3rem!important;
+    margin: 2px;
+  }
+}
+
+@media (min-width: 360px) {
+  .btn.span1{
+    padding:4rem!important;
+    margin: 2px;
+  }
+}
+
+@media (min-width:700px)  {
+  .btn.span1{
+    padding:4.5rem!important;
+  }
+/*  .btn.span1 {
+  padding:9rem!important;
+  }*/
+
+}
