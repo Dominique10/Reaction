@@ -35,9 +35,9 @@ body{
   box-sizing: content-box;
 }
 
-#alert{
+/*#alert{
   display: none;
-}
+}*/
 
 #instructions{
   margin-bottom: 0px;
@@ -47,7 +47,7 @@ body{
   margin: 4px;
   box-shadow: 4px 5px 4px #888888;
   border: solid .2rem #000000;
-  visibility: hidden;
+  /*visibility: hidden;*/
 }
 #row{
   text-align: center;
@@ -59,6 +59,12 @@ body{
 }
 .off{
   display:none;
+}
+.visibilityOn{
+  visibility: visible;
+}
+.visibilityOff{
+  visibility: hidden;
 }
 
 @media (min-width: 320px) {

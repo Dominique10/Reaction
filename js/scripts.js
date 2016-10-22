@@ -3,41 +3,42 @@ var GameScore = Parse.Object.extend("GameScore");
 var gameScore = new GameScore();
 
 var reaction = {
-		user : {
-			first : "",
-			last : "",
-			highestScore : 0
-		},
-		firstname1 : "",
-		clickedTime : null,
-		createdTime : null,
-		reactionTime : null,
-		averageArray : null,
-		answer : "",
-		clickedItem : null,
-		myArray : [],
-		firstNameCheck : null,
-		gridArray : ["one","two","three","four","five","six","seven","eight","nine"],
-		gridColor : ["black","blue","green","red","inherit","orange","pink","purple","gold"],
-		getRandomColor : function(){
-			var self = this;
+	user : {
+		first : "",
+		last : "",
+		highestScore : 0
+	},
+	firstname1 : "",
+	clickedTime : null,
+	createdTime : null,
+	reactionTime : null,
+	averageArray : null,
+	answer : "",
+	clickedItem : null,
+	myArray : [.3,.3,.3,.3,.3,.3,.3,.3],
+	firstNameCheck : null,
+	gridArray : ["one","two","three","four","five","six","seven","eight","nine"],
+	gridColor : ["black","blue","green","red","inherit","orange","pink","purple","gold"],
+	getRandomColor : function(){
+		var self = this;
 
-			self.shuffle(self.gridColor);
-			self.shuffle(self.gridArray);
+		self.shuffle(self.gridColor);
+		self.shuffle(self.gridArray);
 
-			$("#alert").css("display","none");
-			$(".btn.span1").css("visibility","hidden");
-			for (var i = 0; i < self.gridColor.length; i++ ) {
-				var color = self.gridColor[i];
-				var grid = self.gridArray[i];
-				$("#" + grid).css("background",color);
+		$("#alert").removeClass("on").addClass("off");
 
-				if (color=="black") {
-					self.answer = grid;
-				}
+		$(".btn.span1").addClass("visibilityOff");
+		for (var i = 0; i < self.gridColor.length; i++ ) {
+			var color = self.gridColor[i];
+			var grid = self.gridArray[i];
+			$("#" + grid).css("background",color);
+
+			if (color=="black") {
+				self.answer = grid;
 			}
+		}
 			//return color;
-			$(".btn.span1").css("visibility","visible");
+			$(".btn.span1").removeClass("visibilityOff").addClass("visibilityOn");
 			self.createdTime=Date.now();
 		},
 		submitName : function(){
@@ -47,12 +48,13 @@ var reaction = {
 
 			self.firstNameCheck = self.firstname1;
 			if (self.firstNameCheck == "") {
-			  var $alert = $("#alert");
+				var $alert = $("#alert");
 
 				$alert.removeClass("alert alert-success").
+				removeClass("off").
 				addClass("alert alert-danger").
 				text("Please Enter Name").
-				css("display","block");
+				addClass("on");
 				// setTimeout("location.reload ();",1500);
 				return;
 			}
@@ -60,8 +62,8 @@ var reaction = {
 			self.user.first = self.firstname1;
 			self.saveUser();
 
-			$("#alert").css("display","none");
-			$("p").css("display","none");
+			$("#alert").addClass("off");
+			$("p").addClass("off");
 			$("#sendName").addClass("off");
 			$("#inputBox").addClass("off");
 			$("#instructions").addClass("off");
@@ -80,11 +82,11 @@ var reaction = {
 				self.myArray.push(self.reactionTime);
 				console.log(self.myArray);
 				$("#time").html("<ul><li>"+self.reactionTime+"</li></ul>");     
-				$(".btn.span1").css("visibility","hidden");
+				$(".btn.span1").removeClass("visibilityOn").addClass("visibilityOff");
 				self.scoreboard();
 			}
 			else{
-				$(".btn.span1").css("visibility","hidden");
+				$(".btn.span1").removeClass("visibilityOn").addClass("visibilityOff");
 				self.wrong();
 				setTimeout(function() {
 					self.getRandomColor();
@@ -94,41 +96,44 @@ var reaction = {
 			self.saveUser(self.user);
 		},
 		scoreboard : function(){
-				var self = this;
-				if (self.myArray.length==10) {
+			var self = this;
+			var $alert = $("#alert");
+			if (self.myArray.length==10) {
 				var sum = 0;
 				for( var i = 0; i < self.myArray.length; i++ ){
 					sum += self.myArray[i];
 					var avg = sum/self.myArray.length;
 				}
 				if (avg <=.19999999999) {
-					document.getElementById("alert").className="alert alert-info";
-					document.getElementById("alert").style.display="block";
-					document.getElementById("alert").innerHTML="Your time is: " + avg +" We think you cheated, Try again.";
+					$alert.addClass("alert alert-info");
+					$alert.addClass("on");
+					$alert.html("Your time is: " + avg +" We think you cheated, Try again.");
 					setTimeout(location.reload(),3000);
 				}
 				else{
 					gameScore.set("score", avg);
-					gameScore.set("playerName", document.getElementById("firstname1").value);
+					gameScore.set("playerName", self.firstname1);
 					gameScore.set("sum", sum);
-					$("#time").css("display","none");
-					$("#alert").addClass("alert alert-info");
-					$("#alert").css("display","block");
-					$("#alert").css("visibility","visible");
-					$("#alert").text("Your time is: " + avg);
+					$("#time").addClass("off").
+					removeClass("on").;
+					$alert.addClass("alert alert-info").
+					addClass("on").
+					removeClass("off").
+					addClass("visibilityOn").
+					text("Your time is: " + avg);
 					gameScore.save(null, {
 						success: function(gameScore) {
 						//alert('Your time is: ' + avg);
 						setTimeout("location.reload ();",3000);
 						//location.reload ();
-						},
-						error: function(gameScore, error) {
+					},
+					error: function(gameScore, error) {
 						// Execute any logic that should take place if the save fails.
 						// error is a Parse.Error with an error code and message.
 						alert('Failed to create new object, with error code: ' + error.message);
-						}
-					});
 					}
+				});
+				}
 			}
 			else
 			{
@@ -137,20 +142,21 @@ var reaction = {
 		},
 		wrong : function(){
 			var $alert = $("#alert");
-			$alert.css("display","block");
-			$alert.removeClass("alert alert-success")
-			$alert.addClass("alert alert-danger")
-			$alert.text("Wrong Tile");
-			$alert.css("visibility","visible");
+			$alert.addClass("on").
+			removeClass("off").
+			removeClass("alert alert-success").
+			addClass("alert alert-danger").
+			text("Wrong Tile").
+			addClass("visibilityOn");
 		},
 		shuffle : function(array){
-		  var m = array.length, t, i;
+			var m = array.length, t, i;
 			while (m > 0) 
 			{
-			i = Math.floor(Math.random() * m--);
-			t = array[m];
-			array[m] = array[i];
-			array[i] = t;
+				i = Math.floor(Math.random() * m--);
+				t = array[m];
+				array[m] = array[i];
+				array[i] = t;
 			}
 			return array;
 		},
@@ -171,9 +177,9 @@ var reaction = {
 
 			//Load user Information from storage
 			if(user != null){
-					self.user = user;
-					firstname1 = self.user.first;
-					$("#firstname1").val(self.user.first);
+				self.user = user;
+				firstname1 = self.user.first;
+				$("#firstname1").val(self.user.first);
 			}
 
 
@@ -187,10 +193,10 @@ var reaction = {
 			});
 
 		}
-};
+	};
 
 
-reaction.init();
+	reaction.init();
 
 
 
