@@ -54,6 +54,13 @@ body{
   padding: 0;
 }
 
+.on {
+  display: block;
+}
+.off{
+  display:none;
+}
+
 @media (min-width: 320px) {
   .btn.span1{
     padding:3rem!important;
