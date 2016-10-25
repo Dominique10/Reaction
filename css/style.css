@@ -66,6 +66,12 @@ body{
 .visibilityOff{
   visibility: hidden;
 }
+.slower{
+  background-color: red;
+}
+.faster{
+  background-color: green;
+}
 
 @media (min-width: 320px) {
   .btn.span1{

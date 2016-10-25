@@ -15,8 +15,9 @@ var reaction = {
 	averageArray : null,
 	answer : "",
 	clickedItem : null,
-	myArray : [.3,.3,.3,.3,.3,.3,.3,.3],
+	myArray : [],
 	firstNameCheck : null,
+	lastTime:0,
 	gridArray : ["one","two","three","four","five","six","seven","eight","nine"],
 	gridColor : ["black","blue","green","red","inherit","orange","pink","purple","gold"],
 	getRandomColor : function(){
@@ -61,7 +62,7 @@ var reaction = {
 			
 			self.user.first = self.firstname1;
 			self.saveUser();
-
+			$("#paceIndicator").removeClass("alert-info");
 			$("#alert").addClass("off");
 			$("p").addClass("off");
 			$("#sendName").addClass("off");
@@ -73,15 +74,47 @@ var reaction = {
 		},
 		clickedSquare : function(tile){
 			var self = this;
+			var $pace = $("#paceIndicator");
+			var sum = 0;
+			//var lastTime=0;
+			var avg=0;
+			var arrayLength;
 			// clickedItem = $(this).closest('li').contentEditable;
 			// console.log(this.id);
 			if (tile.id == self.answer) {
 				self.clickedTime=Date.now();	 	
 				self.reactionTime=(self.clickedTime-self.createdTime)/1000;		 	
 				$("#time").addClass("on");
-				self.myArray.push(self.reactionTime);
+				console.log("Reaction time: "+(Math.round(self.reactionTime*100)/100));
+				self.myArray.push((Math.round(self.reactionTime*100)/100));
 				console.log(self.myArray);
-				$("#time").html("<ul><li>"+self.reactionTime+"</li></ul>");     
+				for (var i =0; i < self.myArray.length; i++) {
+				sum+=self.myArray[i];
+				}
+				avg=sum/self.myArray.length;
+				arrayLength=self.myArray.length;
+				self.lastTime=self.myArray[arrayLength-2];
+				if (self.myArray.length==1) {
+					
+					console.log(self.lastTime);
+					$("#time").html("Reaction: "+avg);
+				}
+				else{
+					if (self.lastTime>=self.reactionTime) {
+						console.log(self.lastTime+":lastTime and avg: "+self.reactionTime);
+						$pace.addClass("faster").
+						removeClass("slower");
+						//self.lastTime=avg;
+						$("#time").html("Moving Good : "+avg);
+					}
+					else{
+						$pace.addClass("slower").
+						removeClass("faster");
+						//self.lastTime=avg;
+						$("#time").html("Speed up: "+avg); 
+					}
+				}
+				//$("#time").html("<ul><li>"+avg+"</li></ul>");     
 				$(".btn.span1").removeClass("visibilityOn").addClass("visibilityOff");
 				self.scoreboard();
 			}
@@ -115,7 +148,7 @@ var reaction = {
 					gameScore.set("playerName", self.firstname1);
 					gameScore.set("sum", sum);
 					$("#time").addClass("off").
-					removeClass("on").;
+					removeClass("on");
 					$alert.addClass("alert alert-info").
 					addClass("on").
 					removeClass("off").
